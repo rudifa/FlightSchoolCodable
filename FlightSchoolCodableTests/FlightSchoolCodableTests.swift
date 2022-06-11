@@ -20,24 +20,29 @@ class FlightSchoolCodableTests: XCTestCase {
             var model: String
             var seats: Int
 
-            private enum CodingKeys: String, CodingKey {
-                case manufacturer
-                case model
-                case seats
-            }
+            /*
+             // also works without the code below,
+             // because the compiler generates the equivalent code
 
-            init(manufacturer: String, model: String, seats: Int) {
-                self.manufacturer = manufacturer
-                self.model = model
-                self.seats = seats
-            }
+             private enum CodingKeys: String, CodingKey {
+                 case manufacturer
+                 case model
+                 case seats
+             }
 
-            init(from decoder: Decoder) throws {
-                let container = try decoder.container(keyedBy: CodingKeys.self)
-                manufacturer = try container.decode(String.self, forKey: .manufacturer)
-                model = try container.decode(String.self, forKey: .model)
-                seats = try container.decode(Int.self, forKey: .seats)
-            }
+             init(manufacturer: String, model: String, seats: Int) {
+                 self.manufacturer = manufacturer
+                 self.model = model
+                 self.seats = seats
+             }
+
+             init(from decoder: Decoder) throws {
+                 let container = try decoder.container(keyedBy: CodingKeys.self)
+                 manufacturer = try container.decode(String.self, forKey: .manufacturer)
+                 model = try container.decode(String.self, forKey: .model)
+                 seats = try container.decode(Int.self, forKey: .seats)
+             }
+              */
         }
 
         let json = """
