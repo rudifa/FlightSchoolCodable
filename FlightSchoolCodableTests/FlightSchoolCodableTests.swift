@@ -5,32 +5,65 @@
 //  Created by Rudolf Farkas on 11.06.22.
 //
 
-import XCTest
 @testable import FlightSchoolCodable
+import RudifaUtilPkg
+import XCTest
 
 class FlightSchoolCodableTests: XCTestCase {
+    override func setUpWithError() throws {}
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
+    override func tearDownWithError() throws {}
 
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
+    func test_FirstFlight() throws {
+        struct Plane: Codable, Equatable {
+            var manufacturer: String
+            var model: String
+            var seats: Int
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
-    }
+            private enum CodingKeys: String, CodingKey {
+                case manufacturer
+                case model
+                case seats
+            }
 
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+            init(manufacturer: String, model: String, seats: Int) {
+                self.manufacturer = manufacturer
+                self.model = model
+                self.seats = seats
+            }
+
+            init(from decoder: Decoder) throws {
+                let container = try decoder.container(keyedBy: CodingKeys.self)
+                manufacturer = try container.decode(String.self, forKey: .manufacturer)
+                model = try container.decode(String.self, forKey: .model)
+                seats = try container.decode(Int.self, forKey: .seats)
+            }
         }
-    }
 
+        let json = """
+        {
+            "manufacturer": "Airbus",
+            "model": "A380",
+            "seats": 532
+        }
+        """.data(using: .utf8)!
+
+        let decoder = JSONDecoder()
+
+        let plane = try decoder.decode(Plane.self, from: json)
+
+        printClassAndFunc("plane: \(plane)")
+
+        XCTAssertEqual(plane, Plane(manufacturer: "Airbus", model: "A380", seats: 532))
+
+        let encoder = JSONEncoder()
+
+        let encodedPlane = try encoder.encode(plane)
+
+        printClassAndFunc("encodedPlane: \(encodedPlane)")
+
+        let encodedPlaneString: String = plane.encode()!
+
+        printClassAndFunc("encodedPlaneString: \(encodedPlaneString)")
+    }
 }

@@ -15,17 +15,11 @@
 		9D5F42542854FD0800D25C0C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D5F42522854FD0800D25C0C /* LaunchScreen.storyboard */; };
 		9D5F425F2854FD0800D25C0C /* FlightSchoolCodableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5F425E2854FD0800D25C0C /* FlightSchoolCodableTests.swift */; };
 		9D5F42782854FD4000D25C0C /* Flight School Guide to Swift Codable.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 9D5F42772854FD4000D25C0C /* Flight School Guide to Swift Codable.pdf */; };
+		9D5F427B285502F000D25C0C /* RudifaUtilPkg in Frameworks */ = {isa = PBXBuildFile; productRef = 9D5F427A285502F000D25C0C /* RudifaUtilPkg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		9D5F425B2854FD0800D25C0C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 9D5F423C2854FD0100D25C0C /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 9D5F42432854FD0100D25C0C;
-			remoteInfo = FlightSchoolCodable;
-		};
-		9D5F42652854FD0800D25C0C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 9D5F423C2854FD0100D25C0C /* Project object */;
 			proxyType = 1;
@@ -45,7 +39,6 @@
 		9D5F42552854FD0800D25C0C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9D5F425A2854FD0800D25C0C /* FlightSchoolCodableTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlightSchoolCodableTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D5F425E2854FD0800D25C0C /* FlightSchoolCodableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightSchoolCodableTests.swift; sourceTree = "<group>"; };
-		9D5F42642854FD0800D25C0C /* FlightSchoolCodableUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlightSchoolCodableUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D5F42772854FD4000D25C0C /* Flight School Guide to Swift Codable.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Flight School Guide to Swift Codable.pdf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -54,17 +47,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D5F427B285502F000D25C0C /* RudifaUtilPkg in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		9D5F42572854FD0800D25C0C /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		9D5F42612854FD0800D25C0C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -89,7 +76,6 @@
 			children = (
 				9D5F42442854FD0100D25C0C /* FlightSchoolCodable.app */,
 				9D5F425A2854FD0800D25C0C /* FlightSchoolCodableTests.xctest */,
-				9D5F42642854FD0800D25C0C /* FlightSchoolCodableUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -132,6 +118,9 @@
 			dependencies = (
 			);
 			name = FlightSchoolCodable;
+			packageProductDependencies = (
+				9D5F427A285502F000D25C0C /* RudifaUtilPkg */,
+			);
 			productName = FlightSchoolCodable;
 			productReference = 9D5F42442854FD0100D25C0C /* FlightSchoolCodable.app */;
 			productType = "com.apple.product-type.application";
@@ -154,24 +143,6 @@
 			productReference = 9D5F425A2854FD0800D25C0C /* FlightSchoolCodableTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		9D5F42632854FD0800D25C0C /* FlightSchoolCodableUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 9D5F42742854FD0800D25C0C /* Build configuration list for PBXNativeTarget "FlightSchoolCodableUITests" */;
-			buildPhases = (
-				9D5F42602854FD0800D25C0C /* Sources */,
-				9D5F42612854FD0800D25C0C /* Frameworks */,
-				9D5F42622854FD0800D25C0C /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				9D5F42662854FD0800D25C0C /* PBXTargetDependency */,
-			);
-			name = FlightSchoolCodableUITests;
-			productName = FlightSchoolCodableUITests;
-			productReference = 9D5F42642854FD0800D25C0C /* FlightSchoolCodableUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -189,10 +160,6 @@
 						CreatedOnToolsVersion = 13.4.1;
 						TestTargetID = 9D5F42432854FD0100D25C0C;
 					};
-					9D5F42632854FD0800D25C0C = {
-						CreatedOnToolsVersion = 13.4.1;
-						TestTargetID = 9D5F42432854FD0100D25C0C;
-					};
 				};
 			};
 			buildConfigurationList = 9D5F423F2854FD0100D25C0C /* Build configuration list for PBXProject "FlightSchoolCodable" */;
@@ -204,13 +171,15 @@
 				Base,
 			);
 			mainGroup = 9D5F423B2854FD0100D25C0C;
+			packageReferences = (
+				9D5F4279285502F000D25C0C /* XCRemoteSwiftPackageReference "RudifaUtilPkg" */,
+			);
 			productRefGroup = 9D5F42452854FD0100D25C0C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				9D5F42432854FD0100D25C0C /* FlightSchoolCodable */,
 				9D5F42592854FD0800D25C0C /* FlightSchoolCodableTests */,
-				9D5F42632854FD0800D25C0C /* FlightSchoolCodableUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -228,13 +197,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		9D5F42582854FD0800D25C0C /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		9D5F42622854FD0800D25C0C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -262,13 +224,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		9D5F42602854FD0800D25C0C /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -276,11 +231,6 @@
 			isa = PBXTargetDependency;
 			target = 9D5F42432854FD0100D25C0C /* FlightSchoolCodable */;
 			targetProxy = 9D5F425B2854FD0800D25C0C /* PBXContainerItemProxy */;
-		};
-		9D5F42662854FD0800D25C0C /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 9D5F42432854FD0100D25C0C /* FlightSchoolCodable */;
-			targetProxy = 9D5F42652854FD0800D25C0C /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -514,42 +464,6 @@
 			};
 			name = Release;
 		};
-		9D5F42752854FD0800D25C0C /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = LHA84NAPNA;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = ch.rudifa.FlightSchoolCodableUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = FlightSchoolCodable;
-			};
-			name = Debug;
-		};
-		9D5F42762854FD0800D25C0C /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = LHA84NAPNA;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = ch.rudifa.FlightSchoolCodableUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = FlightSchoolCodable;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -580,16 +494,26 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9D5F42742854FD0800D25C0C /* Build configuration list for PBXNativeTarget "FlightSchoolCodableUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				9D5F42752854FD0800D25C0C /* Debug */,
-				9D5F42762854FD0800D25C0C /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		9D5F4279285502F000D25C0C /* XCRemoteSwiftPackageReference "RudifaUtilPkg" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/rudifa/RudifaUtilPkg";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		9D5F427A285502F000D25C0C /* RudifaUtilPkg */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9D5F4279285502F000D25C0C /* XCRemoteSwiftPackageReference "RudifaUtilPkg" */;
+			productName = RudifaUtilPkg;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 9D5F423C2854FD0100D25C0C /* Project object */;
 }
