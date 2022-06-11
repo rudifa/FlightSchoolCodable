@@ -14,5 +14,62 @@ class Chapter_2_Tests: XCTestCase {
 
     override func tearDownWithError() throws {}
 
-    func test_HoldingPatterns() throws {}
+    func test_HoldingPatterns() throws {
+        do {
+            let jsonData = """
+            {
+                "aircraft": {
+                    "identification": "NA12345",
+                    "color": "Blue/White"
+                },
+                "route": ["KTTD", "KHIO"],
+                "flight_rules": "VFR",
+                "departure_time": {
+                    "proposed": "2018-04-20T14:15:00-07:00",
+                    "actual": "2018-04-20T14:20:00-07:00"
+                },
+                "remarks": null
+            }
+            """.data(using: .utf8)!
+
+            let decoder = JSONDecoder()
+            // decoder.keyDecodingStrategy = .convertFromSnakeCase
+            decoder.dateDecodingStrategy = .iso8601
+        }
+
+        struct Aircraft: Codable, Equatable {
+            var identification: String
+            var color: String
+        }
+
+        enum FlightRules: String, Codable, Equatable {
+            case visual = "VFR"
+            case instrument = "IFR"
+        }
+
+        struct FlightPlan: Codable, Equatable {
+            var aircraft: Aircraft
+            var route: [String]
+            var flightRules: FlightRules
+            private var departureDates: [String: Date]
+            var remarks: String?
+
+            private enum CodingKeys: String, CodingKey {
+                case aircraft
+                case route
+                case flightRules = "flight_rules"
+                case departureDates = "departure_time"
+                case remarks
+            }
+
+
+            var proposedDepartureDate: Date? {
+                return departureDates["proposed"]
+            }
+
+            var actualDepartureDate: Date? {
+                return departureDates["actual"]
+            }
+        }
+    }
 }
