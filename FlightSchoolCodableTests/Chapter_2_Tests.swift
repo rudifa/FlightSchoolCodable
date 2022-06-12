@@ -90,8 +90,8 @@ class Chapter_2_Tests: XCTestCase {
                     route: ["KTTD", "KHIO"],
                     flightRules: .visual,
                     departureDates: [
-                        "proposed": Date(timeIntervalSince1970: 1524258900),
-                        "actual": Date(timeIntervalSince1970: 1524259200),
+                        "proposed": Date(timeIntervalSince1970: 1_524_258_900),
+                        "actual": Date(timeIntervalSince1970: 1_524_259_200),
                     ],
                     remarks: nil
                 )
@@ -104,21 +104,35 @@ class Chapter_2_Tests: XCTestCase {
             }
         }
 
-        let newFormatter = ISO8601DateFormatter()
-        let date1 = newFormatter.date(from: "2018-04-20T14:15:00-07:00")!
+        let date1 = Date(iso8601String: "2018-04-20T14:15:00-07:00")!
         printClassAndFunc("date1= \(date1) \(date1.timeIntervalSince1970) ")
-        let date2 = newFormatter.date(from: "2018-04-20T14:20:00-07:00")!
+
+        let date2 = Date(iso8601String: "2018-04-20T14:20:00-07:00")!
         printClassAndFunc("date2= \(date2) \(date2.timeIntervalSince1970) ")
+    }
+}
 
-//        "proposed": "2018-04-20T14:15:00-07:00",
-//        "actual": "2018-04-20T14:20:00-07:00"
-        // func to convert ISO8601 date string to Date timestamp
-        func iso8601Date(from string: String) -> TimeInterval {
-            let formatter = ISO8601DateFormatter()
-            return formatter.date(from: string)!.timeIntervalSince1970
+extension Date {
+    /// Returns the ISO8601 string representation of self (UTC timezone)
+    var iso8601UTC: String {
+        let formatter = ISO8601DateFormatter()
+        return formatter.string(from: self)
+    }
+
+    /// Returns the ISO8601 string representation of self (local timezone)
+    var iso8601Local: String {
+        let formatter = ISO8601DateFormatter()
+        formatter.timeZone = .current
+        return formatter.string(from: self)
+    }
+
+    /// Initializes self to the date specified in the string
+    /// - Parameter fromISO8601String:like "2018-04-20T14:20:00-07:00"
+    init?(iso8601String: String) {
+        let formatter = ISO8601DateFormatter()
+        guard let date = formatter.date(from: iso8601String) else {
+            return nil
         }
-        let date22 = iso8601Date(from: "2018-04-20T14:20:00-07:00")
-        printClassAndFunc("date22=  \(date22) ")
-
+        self = date
     }
 }
