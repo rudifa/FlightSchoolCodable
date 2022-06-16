@@ -51,7 +51,7 @@ class Chapter_1_Tests: XCTestCase {
 
     // MARK: tests
 
-    func test_FirstFlight() throws {
+    func test_01_FirstFlight() throws {
         do {
             let jsonData = """
             {

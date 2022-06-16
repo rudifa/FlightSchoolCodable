@@ -69,7 +69,7 @@ class Chapter_2_Tests: XCTestCase {
 
     // MARK: tests
 
-    func test_HoldingPatterns() throws {
+    func test_02_HoldingPatterns() throws {
         do {
             let jsonData = """
             {

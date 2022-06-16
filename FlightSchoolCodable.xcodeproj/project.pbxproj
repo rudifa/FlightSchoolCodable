@@ -17,6 +17,7 @@
 		9D5F42782854FD4000D25C0C /* Flight School Guide to Swift Codable.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 9D5F42772854FD4000D25C0C /* Flight School Guide to Swift Codable.pdf */; };
 		9D5F427B285502F000D25C0C /* RudifaUtilPkg in Frameworks */ = {isa = PBXBuildFile; productRef = 9D5F427A285502F000D25C0C /* RudifaUtilPkg */; };
 		9D5F427E2855176600D25C0C /* Chapter_2_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5F427D2855176600D25C0C /* Chapter_2_Tests.swift */; };
+		9D691FD8285B74A80069A0E2 /* Chapter_3_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D691FD7285B74A80069A0E2 /* Chapter_3_Tests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +43,7 @@
 		9D5F425E2854FD0800D25C0C /* Chapter_1_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chapter_1_Tests.swift; sourceTree = "<group>"; };
 		9D5F42772854FD4000D25C0C /* Flight School Guide to Swift Codable.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Flight School Guide to Swift Codable.pdf"; sourceTree = "<group>"; };
 		9D5F427D2855176600D25C0C /* Chapter_2_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chapter_2_Tests.swift; sourceTree = "<group>"; };
+		9D691FD7285B74A80069A0E2 /* Chapter_3_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chapter_3_Tests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,8 +101,9 @@
 		9D5F425D2854FD0800D25C0C /* FlightSchoolCodableTests */ = {
 			isa = PBXGroup;
 			children = (
-				9D5F427D2855176600D25C0C /* Chapter_2_Tests.swift */,
 				9D5F425E2854FD0800D25C0C /* Chapter_1_Tests.swift */,
+				9D5F427D2855176600D25C0C /* Chapter_2_Tests.swift */,
+				9D691FD7285B74A80069A0E2 /* Chapter_3_Tests.swift */,
 			);
 			path = FlightSchoolCodableTests;
 			sourceTree = "<group>";
@@ -224,6 +227,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9D5F425F2854FD0800D25C0C /* Chapter_1_Tests.swift in Sources */,
+				9D691FD8285B74A80069A0E2 /* Chapter_3_Tests.swift in Sources */,
 				9D5F427E2855176600D25C0C /* Chapter_2_Tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
