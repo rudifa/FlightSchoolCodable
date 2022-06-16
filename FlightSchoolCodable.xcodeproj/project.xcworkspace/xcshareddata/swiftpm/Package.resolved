@@ -5,8 +5,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/rudifa/RudifaUtilPkg",
       "state" : {
-        "revision" : "2b8ae50abdf19ee72c25e324bc3ce0293824cad1",
-        "version" : "1.4.0"
+        "revision" : "af0141567eeb7f534f94c35e0fc008c9f5902012",
+        "version" : "1.4.1"
       }
     }
   ],

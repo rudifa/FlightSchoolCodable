@@ -20,29 +20,28 @@ class Chapter_1_Tests: XCTestCase {
             var model: String
             var seats: Int
 
-            /*
-             // also works without the code below,
-             // because the compiler generates the equivalent code
+            /*   */
+            // also works without the code below,
+            // because the compiler generates the equivalent code
 
-             private enum CodingKeys: String, CodingKey {
-                 case manufacturer
-                 case model
-                 case seats
-             }
+            private enum CodingKeys: String, CodingKey {
+                case manufacturer
+                case model
+                case seats
+            }
 
-             init(manufacturer: String, model: String, seats: Int) {
-                 self.manufacturer = manufacturer
-                 self.model = model
-                 self.seats = seats
-             }
+            init(manufacturer: String, model: String, seats: Int) {
+                self.manufacturer = manufacturer
+                self.model = model
+                self.seats = seats
+            }
 
-             init(from decoder: Decoder) throws {
-                 let container = try decoder.container(keyedBy: CodingKeys.self)
-                 manufacturer = try container.decode(String.self, forKey: .manufacturer)
-                 model = try container.decode(String.self, forKey: .model)
-                 seats = try container.decode(Int.self, forKey: .seats)
-             }
-              */
+            init(from decoder: Decoder) throws {
+                let container = try decoder.container(keyedBy: CodingKeys.self)
+                manufacturer = try container.decode(String.self, forKey: .manufacturer)
+                model = try container.decode(String.self, forKey: .model)
+                seats = try container.decode(Int.self, forKey: .seats)
+            }
         }
 
         do {
@@ -101,43 +100,6 @@ class Chapter_1_Tests: XCTestCase {
             printClassAndFunc("planes: \(planes)")
 
             XCTAssertEqual(planes, [
-                Plane(manufacturer: "Airbus", model: "A380", seats: 532),
-                Plane(manufacturer: "Boeing", model: "747", seats: 242),
-                Plane(manufacturer: "Airbus", model: "A320", seats: 180),
-            ])
-        }
-
-        do {
-            let jsonData = """
-            {
-                "planes": [
-                    {
-                        "manufacturer": "Airbus",
-                        "model": "A380",
-                        "seats": 532
-                    },
-                    {
-                        "manufacturer": "Boeing",
-                        "model": "747",
-                        "seats": 242
-
-                    },
-                    {
-                        "manufacturer": "Airbus",
-                        "model": "A320",
-                        "seats": 180
-                    }
-                ]
-            }
-            """.data(using: .utf8)!
-
-            let decoder = JSONDecoder()
-
-            let planes = try decoder.decode([String: [Plane]].self, from: jsonData)
-
-            printClassAndFunc("planes: \(planes)")
-
-            XCTAssertEqual(planes["planes"], [
                 Plane(manufacturer: "Airbus", model: "A380", seats: 532),
                 Plane(manufacturer: "Boeing", model: "747", seats: 242),
                 Plane(manufacturer: "Airbus", model: "A320", seats: 180),

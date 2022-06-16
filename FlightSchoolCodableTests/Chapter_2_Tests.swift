@@ -112,27 +112,3 @@ class Chapter_2_Tests: XCTestCase {
     }
 }
 
-extension Date {
-    /// Returns the ISO8601 string representation of self (UTC timezone)
-    var iso8601UTC: String {
-        let formatter = ISO8601DateFormatter()
-        return formatter.string(from: self)
-    }
-
-    /// Returns the ISO8601 string representation of self (local timezone)
-    var iso8601Local: String {
-        let formatter = ISO8601DateFormatter()
-        formatter.timeZone = .current
-        return formatter.string(from: self)
-    }
-
-    /// Initializes self to the date specified in the string
-    /// - Parameter fromISO8601String:like "2018-04-20T14:20:00-07:00"
-    init?(iso8601String: String) {
-        let formatter = ISO8601DateFormatter()
-        guard let date = formatter.date(from: iso8601String) else {
-            return nil
-        }
-        self = date
-    }
-}
