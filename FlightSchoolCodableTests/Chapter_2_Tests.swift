@@ -9,6 +9,16 @@
 import RudifaUtilPkg
 import XCTest
 
+// MARK: decode struct with nested structs and enums
+
+// Decoding a Nested Object
+// Decoding an Array of Strings
+// Decoding an Enumeration from a String
+// Handling Key / Property Name Mismatches
+// Decoding Dates from Timestamps
+// Decoding Null Values with Optional or Default Values
+
+
 class Chapter_2_Tests: XCTestCase {
     override func setUpWithError() throws {}
     override func tearDownWithError() throws {}

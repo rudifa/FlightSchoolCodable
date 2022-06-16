@@ -9,6 +9,12 @@
 import RudifaUtilPkg
 import XCTest
 
+// MARK: decode a simple struct
+
+// Adopting Decodable in the Model
+// Decoding JSON Into a Model Object
+// Encoding a Model Object Into JSON
+
 class Chapter_1_Tests: XCTestCase {
     override func setUpWithError() throws {}
     override func tearDownWithError() throws {}
