@@ -11,39 +11,41 @@ import XCTest
 
 class Chapter_1_Tests: XCTestCase {
     override func setUpWithError() throws {}
-
     override func tearDownWithError() throws {}
 
-    func test_FirstFlight() throws {
-        struct Plane: Codable, Equatable {
-            var manufacturer: String
-            var model: String
-            var seats: Int
+    // MARK: struct under test
 
-            /*   */
-            // also works without the code below,
-            // because the compiler generates the equivalent code
+    struct Plane: Codable, Equatable {
+        var manufacturer: String
+        var model: String
+        var seats: Int
 
-            private enum CodingKeys: String, CodingKey {
-                case manufacturer
-                case model
-                case seats
-            }
+        // also works without the code below,
+        // because the compiler generates the equivalent code
 
-            init(manufacturer: String, model: String, seats: Int) {
-                self.manufacturer = manufacturer
-                self.model = model
-                self.seats = seats
-            }
-
-            init(from decoder: Decoder) throws {
-                let container = try decoder.container(keyedBy: CodingKeys.self)
-                manufacturer = try container.decode(String.self, forKey: .manufacturer)
-                model = try container.decode(String.self, forKey: .model)
-                seats = try container.decode(Int.self, forKey: .seats)
-            }
+        private enum CodingKeys: String, CodingKey {
+            case manufacturer
+            case model
+            case seats
         }
 
+        init(manufacturer: String, model: String, seats: Int) {
+            self.manufacturer = manufacturer
+            self.model = model
+            self.seats = seats
+        }
+
+        init(from decoder: Decoder) throws {
+            let container = try decoder.container(keyedBy: CodingKeys.self)
+            manufacturer = try container.decode(String.self, forKey: .manufacturer)
+            model = try container.decode(String.self, forKey: .model)
+            seats = try container.decode(Int.self, forKey: .seats)
+        }
+    }
+
+    // MARK: tests
+
+    func test_FirstFlight() throws {
         do {
             let jsonData = """
             {

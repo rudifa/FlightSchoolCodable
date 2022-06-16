@@ -9,52 +9,55 @@
 import RudifaUtilPkg
 import XCTest
 
-struct Aircraft: Codable, Equatable {
-    var identification: String
-    var color: String
-}
-
-enum FlightRules: String, Codable, Equatable {
-    case visual = "VFR"
-    case instrument = "IFR"
-}
-
-struct FlightPlan: Codable, Equatable {
-    var aircraft: Aircraft
-    var route: [String]
-    var flightRules: FlightRules
-    private var departureDates: [String: Date]
-    var remarks: String?
-
-    private enum CodingKeys: String, CodingKey {
-        case aircraft
-        case route
-        case flightRules = "flight_rules"
-        case departureDates = "departure_time"
-        case remarks
-    }
-
-    var proposedDepartureDate: Date? {
-        return departureDates["proposed"]
-    }
-
-    var actualDepartureDate: Date? {
-        return departureDates["actual"]
-    }
-
-    init(aircraft: Aircraft, route: [String], flightRules: FlightRules, departureDates: [String: Date], remarks: String?) {
-        self.aircraft = aircraft
-        self.route = route
-        self.flightRules = flightRules
-        self.departureDates = departureDates
-        self.remarks = remarks
-    }
-}
-
 class Chapter_2_Tests: XCTestCase {
     override func setUpWithError() throws {}
-
     override func tearDownWithError() throws {}
+
+    // MARK: types under test
+
+    struct Aircraft: Codable, Equatable {
+        var identification: String
+        var color: String
+    }
+
+    enum FlightRules: String, Codable, Equatable {
+        case visual = "VFR"
+        case instrument = "IFR"
+    }
+
+    struct FlightPlan: Codable, Equatable {
+        var aircraft: Aircraft
+        var route: [String]
+        var flightRules: FlightRules
+        private var departureDates: [String: Date]
+        var remarks: String?
+
+        private enum CodingKeys: String, CodingKey {
+            case aircraft
+            case route
+            case flightRules = "flight_rules"
+            case departureDates = "departure_time"
+            case remarks
+        }
+
+        var proposedDepartureDate: Date? {
+            return departureDates["proposed"]
+        }
+
+        var actualDepartureDate: Date? {
+            return departureDates["actual"]
+        }
+
+        init(aircraft: Aircraft, route: [String], flightRules: FlightRules, departureDates: [String: Date], remarks: String?) {
+            self.aircraft = aircraft
+            self.route = route
+            self.flightRules = flightRules
+            self.departureDates = departureDates
+            self.remarks = remarks
+        }
+    }
+
+    // MARK: tests
 
     func test_HoldingPatterns() throws {
         do {
@@ -111,4 +114,3 @@ class Chapter_2_Tests: XCTestCase {
         printClassAndFunc("date2= \(date2) \(date2.timeIntervalSince1970) ")
     }
 }
-
